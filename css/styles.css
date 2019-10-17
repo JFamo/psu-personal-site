@@ -31,6 +31,14 @@ h3{
   padding-bottom:10%;
 }
 
+#mediabox{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding:0.5rem 0.5rem;
+  width:60%;
+  position: absolute;
+  bottom:5%;
+}
+
 .navbar {
   list-style-type: none;
   margin: 0;
@@ -65,6 +73,7 @@ h3{
   display:flex;
 }
 
+.column-25{ flex:25%; }
 .column-3{ flex:30%; }
 .column-4{ flex:40%; }
 .column-5{ flex:50%; }
