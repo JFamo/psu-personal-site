@@ -81,6 +81,13 @@ h3{
   padding-bottom:5%;
 }
 
+#work{
+  border-top:2px dashed #9e1fed;
+  background-color:#FFF;
+  padding-top:5%;
+  padding-bottom:5%;
+}
+
 .navbar {
   list-style-type: none;
   margin: 0;
