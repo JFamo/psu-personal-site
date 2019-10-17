@@ -20,6 +20,16 @@ h3{
   line-height: 1.8;
 }
 
+.icon{
+  width:2rem;
+  height:2rem;
+}
+
+.icon-link:hover{
+  opacity:0.5;
+
+}
+
 #name{
   padding-top:10%;
   padding-bottom:5%;
