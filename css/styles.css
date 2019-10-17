@@ -1,9 +1,14 @@
+*{
+  margin:0;
+}
+
 .navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #222;
+  height:10vh;
 }
 
 .navitem {
@@ -25,3 +30,13 @@
 .navitem a:hover {
   background-color: #111;
 }
+
+.row{
+  display:flex;
+}
+
+.column-3{ flex:30%; }
+.column-4{ flex:40%; }
+.column-5{ flex:50%; }
+.column-6{ flex:60%; }
+.column-7{ flex:70%; }
