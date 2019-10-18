@@ -26,6 +26,15 @@ h3{
   line-height: 1.5;
 }
 
+a{
+  color:#0f6fc6;
+  transition: 0.2s all;
+}
+
+a:hover{
+  color:#de2514;
+}
+
 .deco{
   text-decoration: underline;
   text-decoration-color: #0f6fc6;
