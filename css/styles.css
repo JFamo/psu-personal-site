@@ -28,7 +28,7 @@ h3{
 
 .deco{
   text-decoration: underline;
-  text-decoration-color: #9e1fed;
+  text-decoration-color: #0f6fc6;
   text-decoration-style: dashed;
 }
 
@@ -61,28 +61,28 @@ h3{
 }
 
 #skills{
-  border-top:2px dashed #9e1fed;
+  border-top:2px dashed #0f6fc6;
   background-color:#EEE;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #awards{
-  border-top:2px dashed #9e1fed;
+  border-top:2px dashed #0f6fc6;
   background-color:#FFF;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #education{
-  border-top:2px dashed #9e1fed;
+  border-top:2px dashed #0f6fc6;
   background-color:#EEE;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #work{
-  border-top:2px dashed #9e1fed;
+  border-top:2px dashed #0f6fc6;
   background-color:#FFF;
   padding-top:5%;
   padding-bottom:5%;
@@ -94,8 +94,8 @@ h3{
   padding: 0;
   overflow: hidden;
   background-color: white;
-  border-top:2px solid #9e1fed;
-  border-bottom:2px solid #9e1fed;
+  border-top:2px solid #0f6fc6;
+  border-bottom:2px solid #0f6fc6;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: sticky;
   top:0;
@@ -125,7 +125,7 @@ h3{
   display: block;
   height: 2px;
   transition: width 0.3s;
-  background: #e4eb60 !important;
+  background: #de2514 !important;
 }
 
 .navitem a:hover::after{
@@ -133,7 +133,7 @@ h3{
 }
 
 .navitem a:hover{
-  color: #e4eb60 !important;
+  color: #de2514 !important;
 }
 
 .content{
