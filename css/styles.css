@@ -178,13 +178,11 @@ a:hover{
 }
 
 .imgblock{
-  display:flex;
   padding:1rem 1rem 1rem 1rem;
 }
 
 .imgblock img{
-  flex:50%;
-  width:50%;
+  width:100%;
   height:auto;
   border:1px solid #ccc;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -200,3 +198,19 @@ a:hover{
 .column-5{ flex:50%; }
 .column-6{ flex:60%; }
 .column-7{ flex:70%; }
+
+@media only screen and (max-width: 575px) {
+  .column-25{ flex:100%; }
+  .column-3{ flex:100%; }
+  .column-4{ flex:100%; }
+  .column-5{ flex:100%; }
+  .column-6{ flex:100%; }
+  .column-7{ flex:100%; }
+  .row{display:block;}
+  .imgblock{display:block;}
+  .imgblock img{
+    width:auto;
+    height:auto;
+    max-height:15rem;
+  }
+}
