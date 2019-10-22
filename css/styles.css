@@ -202,10 +202,18 @@ a:hover{
 @media only screen and (max-width: 575px) {
   .collapse-col{ flex:100%; }
   .collapse{display:block;}
-  .imgblock{display:block;}
+  .imgblock{
+    display:block;
+    text-align:center;
+  }
   .imgblock img{
     width:auto;
     height:auto;
     max-height:15rem;
+    padding:0;
+    margin-bottom:5%;
+  }
+  .block{
+    margin-bottom:5%;
   }
 }
