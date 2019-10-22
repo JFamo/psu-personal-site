@@ -216,4 +216,34 @@ a:hover{
   .block{
     margin-bottom:5%;
   }
+  #title-left{
+    flex:80%;
+  }
+  #title-right{
+    flex:20%;
+  }
+  #title-background{
+    background-size:auto 100% !important;
+  }
+  #mediabox{
+    padding:0.5rem 0.5rem 0.5rem 0.5rem;
+    width:50%;
+    position: absolute;
+    left:50%;
+    margin-left:-25%;
+    bottom:10%
+    top:10%;
+    height:80%;
+  }
+  .mediarow{
+    display: block;
+    height:100%;
+  }
+  .mediacol{
+    height:20%;
+  }
+  .icon-scale{
+    height:80%;
+    width:auto;
+  }
 }
