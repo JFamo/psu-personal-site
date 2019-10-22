@@ -200,13 +200,8 @@ a:hover{
 .column-7{ flex:70%; }
 
 @media only screen and (max-width: 575px) {
-  .column-25{ flex:100%; }
-  .column-3{ flex:100%; }
-  .column-4{ flex:100%; }
-  .column-5{ flex:100%; }
-  .column-6{ flex:100%; }
-  .column-7{ flex:100%; }
-  .row{display:block;}
+  .collapse-col{ flex:100%; }
+  .collapse{display:block;}
   .imgblock{display:block;}
   .imgblock img{
     width:auto;
