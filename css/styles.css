@@ -246,4 +246,7 @@ a:hover{
     height:80%;
     width:auto;
   }
+  #navbar{
+    display:none;
+  }
 }
