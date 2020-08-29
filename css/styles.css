@@ -38,7 +38,7 @@ a:hover{
 .deco{
   text-decoration: underline;
   text-decoration-color: #0f6fc6;
-  text-decoration-style: dashed;
+  text-decoration-style: solid;
 }
 
 .icon{
@@ -81,28 +81,28 @@ a:hover{
 }
 
 #skills{
-  border-top:2px dashed #0f6fc6;
+  border-top:2px solid #0f6fc6;
   background-color:#EEE;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #awards{
-  border-top:2px dashed #0f6fc6;
+  border-top:2px solid #0f6fc6;
   background-color:#FFF;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #education{
-  border-top:2px dashed #0f6fc6;
+  border-top:2px solid #0f6fc6;
   background-color:#EEE;
   padding-top:5%;
   padding-bottom:5%;
 }
 
 #work{
-  border-top:2px dashed #0f6fc6;
+  border-top:2px solid #0f6fc6;
   background-color:#FFF;
   padding-top:5%;
   padding-bottom:5%;
@@ -159,6 +159,7 @@ a:hover{
 .content{
   padding-left:5%;
   padding-right:5%;
+  position:relative;
 }
 
 .row{
@@ -190,6 +191,16 @@ a:hover{
 
 .imgblock img:hover{
   border:1px solid #777;
+}
+
+.droptext{
+  border-left: 3px solid #de2514;
+  padding-left: 0.5rem;
+}
+
+.subtext-award{
+  font-size: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .column-25{ flex:25%; }
