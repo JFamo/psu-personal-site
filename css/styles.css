@@ -3,7 +3,7 @@
 }
 
 html{
-  font-size:1.5vw;
+  font-size: 1.5vw;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
 }
@@ -211,6 +211,9 @@ a:hover{
 .column-7{ flex:70%; }
 
 @media only screen and (max-width: 575px) {
+  html{
+    font-size: 3vw;
+  }
   .collapse-col{ flex:100%; }
   .collapse{display:block;}
   .imgblock{
@@ -218,11 +221,12 @@ a:hover{
     text-align:center;
   }
   .imgblock img{
-    width:auto;
+    width:100%;
     height:auto;
     max-height:15rem;
     padding:0;
     margin-bottom:5%;
+    object-fit:cover;
   }
   .block{
     margin-bottom:5%;
