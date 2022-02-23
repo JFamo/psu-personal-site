@@ -8,7 +8,7 @@ var skills={
     'C':{
         'src': 'img/skills/c.png',
         'scale': '0.25',
-        'desc': 'Have completed a variety of C projects through Penn State including file system and OS design'
+        'desc': 'Have completed a variety of C projects including file system, memory management, and OS design'
     },
     'CSS':{
         'src': 'img/skills/css.png',
@@ -23,7 +23,7 @@ var skills={
     'Docker':{
         'src': 'img/skills/docker.png',
         'scale': '0.25',
-        'desc': 'Limited experience using automatic dockerization and setting up local dev environments'
+        'desc': 'Limited experience using automatic containerization and composing portable environments'
     },
     'Express':{
         'src': 'img/skills/express.png',
@@ -48,7 +48,7 @@ var skills={
     'MySQL':{
         'src': 'img/skills/mysql.png',
         'scale': '0.50',
-        'desc': 'MySQL is my go-to for database solutions in which I am highly proficient'
+        'desc': "MySQL is my go-to for database solutions, and I've taken classes in DB design"
     },
     'Node':{
         'src': 'img/skills/node.png',
@@ -74,6 +74,10 @@ var skills={
 
 let baseScale = 100;
 let textSkill = '';
+let wvar = 1300;
+let hvar = 600;
+let closeThreshold = 500;
+let connectionsMax = 3;
 
 // Load canvas
 var c = document.getElementById("skillsCanvas");
@@ -98,11 +102,9 @@ function loadImages(){
     }
 
     // Instantiate skill positions
-    let wvar = 1300;
-    let hvar = 600;
     for(let [skillName, skill] of Object.entries(skills)){
         skill['x'] = Math.random() * wvar;
-        skill['y'] = Math.random() * hvar;
+        skill['y'] = Math.random() * hvar + 100;
         skill['deg'] = Math.random() * 360;
         skill['speed'] = (Math.random() - 0.5) * 1.5;
         skill['rad'] = Math.random() * 100;
@@ -140,9 +142,11 @@ function drawImages(){
 
 function drawConnections(){
     for(let [n1, s1] of Object.entries(skills)){
-        let s2 = getClosestSkill(getRealImagePosition(s1))['skill'];
-        ctx.moveTo(calculateImageCenter(s1)[0], calculateImageCenter(s1)[1]);
-        ctx.lineTo(calculateImageCenter(s2)[0], calculateImageCenter(s2)[1]);
+        for(let result of getConnectedSkills(getRealImagePosition(s1)).slice(0,connectionsMax)){
+            let s2 = result['skill'];
+            ctx.moveTo(calculateImageCenter(s1)[0], calculateImageCenter(s1)[1]);
+            ctx.lineTo(calculateImageCenter(s2)[0], calculateImageCenter(s2)[1]);
+        }
     }
 }
 
@@ -175,7 +179,7 @@ function getMousePos(evt) {
 }
 
 function getDistance(x1, y1, x2, y2){
-    return Math.sqrt((((x1 - x2)^2) + ((y1 - y2)^2)))
+    return Math.sqrt(Math.pow(x1 - x2 , 2) + Math.pow(y1 - y2,2))
 }
 
 function getClosestSkill(pos){
@@ -192,6 +196,20 @@ function getClosestSkill(pos){
         }
     }
     return {'name':closeName, 'skill':closeSkill};
+}
+
+function getConnectedSkills(pos){
+    closeName = "";
+    closeSkill = {};
+    results = [];
+    for(let [name, skill] of Object.entries(skills)){
+        let targetPos = getRealImagePosition(skill);
+        let dist = getDistance(pos.x,pos.y,targetPos.x,targetPos.y)
+        if(dist < closeThreshold){
+            results.push({'name':name, 'skill':skill});
+        }
+    }
+    return results;
 }
 
 function getRealImagePosition(skill){
