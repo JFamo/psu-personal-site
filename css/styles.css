@@ -41,6 +41,11 @@ a:hover{
   text-decoration-style: solid;
 }
 
+.icon-small{
+  width:1rem;
+  height:1rem;
+}
+
 .icon{
   width:2rem;
   height:2rem;
@@ -168,6 +173,13 @@ a:hover{
 
 .body{
   padding-left:10%;
+  padding-right:5%;
+  padding-top:2%;
+  padding-bottom:2%;
+}
+
+.slim-body{
+  padding-left:5%;
   padding-right:5%;
   padding-top:2%;
   padding-bottom:2%;
