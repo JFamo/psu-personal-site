@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casey Contexto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .game-container {
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 500px;
+            height: 90%;
+        }
+        .input-container {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .guess-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .guess-item.missed {
+            background-color: red;
+        }
+        .guess-item.win {
+            background-color: green;
+        }
+        .level-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .level-card {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="levelSelection" class="level-selection">
+            <h1>Select a Level</h1>
+            <div class="level-card" onclick="selectLevel(1)">Level 1</div>
+            <div class="level-card" onclick="selectLevel(2)">Level 2</div>
+            <div class="level-card" onclick="selectLevel(3)">Level 3</div>
+            <div class="level-card" onclick="selectLevel(4)">Level 4</div>
+            <div class="level-card" onclick="selectLevel(5)">Level 5</div>
+            <div class="level-card" onclick="selectLevel(6)">Level 6</div>
+            <div class="level-card" onclick="selectLevel(7)">Level 7</div>
+            <div class="level-card" onclick="selectLevel(8)">Level 8</div>
+            <div class="level-card" onclick="selectLevel(9)">Level 9</div>
+            <div class="level-card" onclick="selectLevel(10)">Level 10</div>
+        </div>
+
+        <div id="gameContainer" class="game-container">
+            <div class="input-container">
+                <h1>Casey Contexto</h1>
+                <p>Enter your guess:</p>
+                <div class="input-group mb-3">
+                    <input type="text" id="guessInput" class="form-control" placeholder="Enter a word">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" onclick="submitGuess()">Submit Guess</button>
+                    </div>
+                </div>
+                <p>Number of guesses: <span id="guessCount">0</span></p>
+            </div>
+            <div class="guess-list-container">
+                <div id="guessList" class="list-group"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+        let currentLevel = 0;
+        let wordsData = [];
+        let guesses = [];
+        let guessCount = 0;
+        let baseCsvUrl = "http://joshuafamous.me/cs2524/";
+
+        function selectLevel(level) {
+            currentLevel = level;
+            loadCSVForLevel(level);
+            document.getElementById('levelSelection').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'flex';
+        }
+
+        function loadCSVForLevel(level) {
+
+            const csvUrl = `${baseCsvUrl}similar_${level}.csv`;
+            fetch(csvUrl)
+                .then(response => response.text())
+                .then(data => {
+                    Papa.parse(data, {
+                        header: true,
+                        complete: function(results) {
+                            wordsData = results.data;
+                            resetGame();
+                        }
+                    });
+                });
+        }
+
+        function resetGame() {
+            guesses = [];
+            guessCount = 0;
+            document.getElementById('guessCount').innerText = guessCount;
+            document.getElementById('guessList').innerHTML = '';
+        }
+
+        function getBackgroundColor(index) {
+            // Assuming index ranges from 0 to 10000, calculate color
+            const maxIndex = 10000;
+            const ratio = index / maxIndex;
+            const green = Math.max(200 - ratio * 200, 0);
+            const red = Math.min(ratio * 200, 200);
+            return `rgb(${red}, ${green}, 0)`;
+        }
+
+        function submitGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const guess = guessInput.value.trim().toLowerCase();
+            if (guess) {
+                guessCount++;
+                document.getElementById('guessCount').innerText = guessCount;
+
+                const wordData = wordsData.find((word, index) => {
+                    if (word.Word.toLowerCase() === guess) {
+                        word.index = index;
+                        return true;
+                    }
+                    return false;
+                });
+
+                if (wordData) {
+                    guesses.push({ word: guess, index: wordData.index });
+                } else {
+                    guesses.push({ word: guess, index: 'Missed' });
+                }
+                displayGuesses();
+                guessInput.value = '';
+            }
+        }
+
+        function displayGuesses() {
+            guesses.sort((a, b) => {
+                if (a.index === 'Missed') return 1;
+                if (b.index === 'Missed') return -1;
+                return a.index - b.index;
+            });
+
+            const guessList = document.getElementById('guessList');
+            guessList.innerHTML = '';
+            guesses.forEach(guess => {
+                const guessItem = document.createElement('div');
+                guessItem.classList.add('list-group-item', 'guess-item');
+                if (guess.index === 'Missed') {
+                    guessItem.classList.add('missed');
+                    guessItem.innerHTML = `<span>${guess.word}</span><span>-</span>`;
+                } else if (guess.index == 0){
+                    guessItem.classList.add('win');
+                    guessItem.innerHTML = `<span>${guess.word}</span><span>Correct!</span>`;
+                } else {
+                    guessItem.style.backgroundColor = getBackgroundColor(guess.index);
+                    guessItem.innerHTML = `<span>${guess.word}</span><span>${guess.index}</span>`;
+                }
+                guessList.appendChild(guessItem);
+            });
+        }
+    </script>
+</body>
+</html>
