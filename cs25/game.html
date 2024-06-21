@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="../img/cs.jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casey Contexto</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body, html {
             height: 100%;
@@ -23,7 +25,7 @@
             justify-content: flex-start;
             width: 100%;
             max-width: 500px;
-            height: 90%;
+            height: calc(85vh - 20px - 1rem);
         }
         .input-container {
             flex-shrink: 0;
@@ -59,22 +61,36 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        .level-card.guessed {
+            background-color: lightgreen;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            font-size: 24px; /* Larger font size for the arrow */
+            color: #999; /* Grey color for the arrow */
+        }
+        .back-button:hover {
+            color: #81b3e9; /* Darker blue on hover */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="levelSelection" class="level-selection">
             <h1>Select a Level</h1>
-            <div class="level-card" onclick="selectLevel(1)">Level 1</div>
-            <div class="level-card" onclick="selectLevel(2)">Level 2</div>
-            <div class="level-card" onclick="selectLevel(3)">Level 3</div>
-            <div class="level-card" onclick="selectLevel(4)">Level 4</div>
-            <div class="level-card" onclick="selectLevel(5)">Level 5</div>
-            <div class="level-card" onclick="selectLevel(6)">Level 6</div>
-            <div class="level-card" onclick="selectLevel(7)">Level 7</div>
-            <div class="level-card" onclick="selectLevel(8)">Level 8</div>
-            <div class="level-card" onclick="selectLevel(9)">Level 9</div>
-            <div class="level-card" onclick="selectLevel(10)">Level 10</div>
+            <div id="level1" class="level-card" onclick="selectLevel(1)">Level 1</div>
+            <div id="level2" class="level-card" onclick="selectLevel(2)">Level 2</div>
+            <div id="level3" class="level-card" onclick="selectLevel(3)">Level 3</div>
+            <div id="level4" class="level-card" onclick="selectLevel(4)">Level 4</div>
+            <div id="level5" class="level-card" onclick="selectLevel(5)">Level 5</div>
+            <div id="level6" class="level-card" onclick="selectLevel(6)">Level 6</div>
+            <div id="level7" class="level-card" onclick="selectLevel(7)">Level 7</div>
+            <div id="level8" class="level-card" onclick="selectLevel(8)">Level 8</div>
+            <div id="level9" class="level-card" onclick="selectLevel(9)">Level 9</div>
+            <div id="level10" class="level-card" onclick="selectLevel(10)">Level 10</div>
         </div>
 
         <div id="gameContainer" class="game-container">
@@ -82,7 +98,7 @@
                 <h1>Casey Contexto</h1>
                 <p>Enter your guess:</p>
                 <div class="input-group mb-3">
-                    <input type="text" id="guessInput" class="form-control" placeholder="Enter a word">
+                    <input type="text" id="guessInput" class="form-control" placeholder="Enter a word" onkeydown="handleEnter(event)">
                     <div class="input-group-append">
                         <button class="btn btn-primary" onclick="submitGuess()">Submit Guess</button>
                     </div>
@@ -92,6 +108,9 @@
             <div class="guess-list-container">
                 <div id="guessList" class="list-group"></div>
             </div>
+            <a class="back-button btn btn-outline-primary" onclick="goToLevelSelection()">
+                <span class="bi bi-arrow-left"></span> Back
+            </a>
         </div>
     </div>
 
@@ -103,11 +122,26 @@
         let guessCount = 0;
         let baseCsvUrl = "http://joshuafamous.me/cs2524/";
 
+        function checkLevelStatus(){
+            for(let i = 1; i <= 10; i++){
+                let cachedGuess = sessionStorage.getItem('level' + i);
+                if (cachedGuess) {
+                    updateLevelCard(i, cachedGuess);
+                }
+            }
+        }
+
         function selectLevel(level) {
             currentLevel = level;
             loadCSVForLevel(level);
             document.getElementById('levelSelection').style.display = 'none';
             document.getElementById('gameContainer').style.display = 'flex';
+        }
+
+        function goToLevelSelection() {
+            document.getElementById('gameContainer').style.display = 'none';
+            document.getElementById('levelSelection').style.display = 'flex';
+            resetGame();
         }
 
         function loadCSVForLevel(level) {
@@ -131,6 +165,7 @@
             guessCount = 0;
             document.getElementById('guessCount').innerText = guessCount;
             document.getElementById('guessList').innerHTML = '';
+            checkLevelStatus();
         }
 
         function getBackgroundColor(index) {
@@ -140,6 +175,18 @@
             const green = Math.max(200 - ratio * 200, 0);
             const red = Math.min(ratio * 200, 200);
             return `rgb(${red}, ${green}, 0)`;
+        }
+
+        function updateLevelCard(level, guess) {
+            const levelCard = document.getElementById('level' + level);
+            levelCard.classList.add('guessed');
+            levelCard.innerText = guess;
+        }
+
+        function handleEnter(event) {
+            if (event.key === 'Enter') {
+                submitGuess();
+            }
         }
 
         function submitGuess() {
@@ -158,6 +205,9 @@
                 });
 
                 if (wordData) {
+                    if(wordData.index == 0){
+                        sessionStorage.setItem('level' + currentLevel, guess);
+                    }
                     guesses.push({ word: guess, index: wordData.index });
                 } else {
                     guesses.push({ word: guess, index: 'Missed' });
