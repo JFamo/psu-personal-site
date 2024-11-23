@@ -20,10 +20,11 @@
     <!-- Navbar -->
     <ul class="navbar" id="navbar">
       <li class="navitem"><a class="active" href="javascript: scrollSection('top')">About</a></li>
-      <li class="navitem navitem-right"><a href="javascript: scrollSection('work')">My Work</a></li>
+      <li class="navitem navitem-right"><a href="javascript: scrollSection('projects')">Projects</a></li>
       <li class="navitem navitem-right"><a href="javascript: scrollSection('skills')">Skills</a></li>
       <li class="navitem navitem-right"><a href="javascript: scrollSection('awards')">Awards</a></li>
       <li class="navitem navitem-right"><a href="javascript: scrollSection('education')">Education</a></li>
+      <li class="navitem navitem-right"><a href="javascript: scrollSection('work')">Work</a></li>
     </ul>
 
     <section id="about">
@@ -33,7 +34,7 @@
         <div class="column-8" id="title-left">
           <center>
             <h1 id="name">Joshua Famous</h1>
-            <h3 id="bio">I am a <span class="deco">full stack software developer</span> who has both led and worked on Agile development teams. I am pursuing my Master's in Computer Science at the <span class="deco">Pennsylvania State University.</span></h3>
+            <h3 id="bio">I am a <span class="deco">full stack software developer</span> who has both led and worked on Agile development teams. I received my Master's in Computer Science at the <span class="deco">Pennsylvania State University.</span></h3>
           </center>
         </div>
         <div class="column-4" id="title-right">
@@ -65,6 +66,49 @@
 
     </section>
 
+    <section id = "work" class="content">
+
+      <h2><img src="img/icon-computer.png" class="icon"> Work</h2>
+
+      <div class="body">
+        <div class="row collapse">
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <img class="icon" src="img/logo-appian.png" />
+              <h4>Appian</h4>
+              <p>2022-<br>Implementing a process mining platform using Java, Python, and Appian SAIL as a software engineer with Appian.</p>
+              <a href="https://appian.com/about/explore/press-releases/2024/latest-version-of-appian-platform-orchestrates-change-through-ai" target="_blank">Read More</a>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <img class="icon" src="img/logo-psu.png" />
+              <h4>Nittany AI Alliance</h4>
+              <p>2021-2023<br>Worked as project lead and NLP engineer implementing an AI system to process more than 100,000 annual admissions to Penn State. Managed communication with stakeholders and organized the team's work.</p>
+              <a href="https://www.psu.edu/news/outreach/story/nittany-ai-alliance-assists-streamlining-penn-state-application-process/" target="_blank">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <img class="icon" src="img/logo-lockheed.jpg" />
+              <h4>Lockheed Martin</h4>
+              <p>2020-2022<br>Two years of internship experience at Lockheed Martin in a full-stack software development role. This included work with a MEAN stack, Java, and cloud technologies in an Agile work environment.</p>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <img class="icon" src="img/logo-maverick.jpg" />
+              <h4>Maverick Software Systems</h4>
+              <p>2018-2020<br>Helped to build logistics software for the medical device industry as software developer for a startup company based out of Penn State.</p>
+              <a href="https://www.linkedin.com/company/maverick-software-systems/about/" target="_blank">LinkedIn</a> &emsp; <a href="https://news.psu.edu/story/581914/2019/07/29/academics/student-startup-aims-improve-health-care-through-technology" target="_blank">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id = "education" class="content">
       <div style="background-image:url('img/oldmain.png'); background-size:40% auto; background-position:right bottom; background-repeat: no-repeat; position: absolute; top:0; bottom:0; right:0; left:0;">
             </div>
@@ -73,20 +117,25 @@
 
       <div class="body">
         <div class="row collapse">
-          <div class="column-5 collapse-col">
+          <!-- <div class="column-5 collapse-col">
             <div class="block">
               <img class="icon" src="img/logo-boyertown.png" />
               <h4>Boyertown Area High School</h4>
               <p>2016-2019<br>4.91/4.00 GPA<br>Class Salutatorian</p>
             </div>
-          </div>
+          </div> -->
           <div class="column-5 collapse-col">
             <div class="block">
               <img class="icon" src="img/logo-psu.png" />
               <h4>Pennsylvania State University</h4>
               <p>2019-2022<br>Bachelor's in Computer Science<br>Summa Cum Laude</p>
-              <br>
-              <p>2022-2023<br>M. Eng in Computer Science<br>4.00 GPA</p>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <img style="opacity:0;" class="icon" src="img/logo-psu.png" />
+              <h4 style="opacity:0;">Pennsylvania State University</h4>
+              <p>2022-2023<br>Master's of Eng. in Computer Science<br>4.00 GPA</p>
             </div>
           </div>
         </div>
@@ -144,14 +193,14 @@
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>National Merit Scholar</h4>
-              <small class="subtext-award">National Merit Scholarship Corporation, 2019</small>
+              <h4>Presidential Scholar Candidate</h4>
+              <small class="subtext-award">US Department of Education, 2019</small>
             </div>
           </div>
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Presidential Scholar Candidate</h4>
-              <small class="subtext-award">US Department of Education, 2019</small>
+              <h4>National Merit Scholar</h4>
+              <small class="subtext-award">National Merit Scholarship Corporation, 2019</small>
             </div>
           </div>
         </div>
@@ -180,128 +229,107 @@
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Java</h4>
-              <p>Experience across various internships, building data managers, Java APIs, OOP fundamentals</p>
+              <h4 class="skill-name">Java</h4>
+              <a id="sk-java" class="skill-show-more" onclick="toggleSkillSection('sk-java')">Show More</a>
+              <p class="skill-text" id="sk-java-text">Experience across various roles including common design patterns and OOP fundamentals</p>
             </div>
           </div>
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>JavaScript (Node/Express/Socket)</h4>
-              <p>Experience with JS for real-time web applications, cybersecurity challenges</p>
-            </div>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <h4>HTML/CSS</h4>
-              <p>Frontend development, web applications, freelance web design</p>
-            </div>
-          </div>
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <h4>PHP</h4>
-              <p>Course projects, competitive projects, web application development</p>
+              <h4 class="skill-name">JavaScript (Node/Express/Socket)</h4>
+              <a id="sk-js" class="skill-show-more" onclick="toggleSkillSection('sk-js')">Show More</a>
+              <p class="skill-text" id="sk-js-text">Experience with JS for web applications, cybersecurity challenges, and other personal projects</p>
             </div>
           </div>
         </div>
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Angular & Vue</h4>
-              <p>Working extensively with these frameworks for internships, personal projects</p>
+              <h4 class="skill-name">HTML/CSS</h4>
+              <a id="sk-html" class="skill-show-more" onclick="toggleSkillSection('sk-html')">Show More</a>
+              <p class="skill-text" id="sk-html-text">Frontend development, web applications, freelance web design</p>
             </div>
           </div>
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>C</h4>
-              <p>Graduate studies focus in OS topics, implementing unikernels and bootloaders</p>
-            </div>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <h4>Python</h4>
-              <p>Machine learning applications, coding competitions, many college courses</p>
-            </div>
-          </div>
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <h4>Agile</h4>
-              <p>Extensive experience working on & leading Agile teams, Scrum & Kanban methods</p>
+              <h4 class="skill-name">PHP</h4>
+              <a id="sk-php" class="skill-show-more" onclick="toggleSkillSection('sk-php')">Show More</a>
+              <p class="skill-text" id="sk-php-text">Course projects, competitive projects, web application development</p>
             </div>
           </div>
         </div>
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Machine Learning</h4>
-              <p>Project lead in NLP & OCR project, courses in general AI, term project work with Transformers, RNNs, CNNs, capstone use of YOLO, ResNet models, personal work with generic algorithms</p>
+              <h4 class="skill-name">Angular/Vue/React</h4>
+              <a id="sk-ang" class="skill-show-more" onclick="toggleSkillSection('sk-ang')">Show More</a>
+              <p class="skill-text" id="sk-ang-text">Working extensively with these frameworks at Appian, internships, personal projects</p>
             </div>
           </div>
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>C#, C++</h4>
-              <p>Use of C# in Unity development, working with Xamarin, use of C++ for course projects in queueing theory</p>
+              <h4 class="skill-name">C</h4>
+              <a id="sk-c" class="skill-show-more" onclick="toggleSkillSection('sk-c')">Show More</a>
+              <p class="skill-text" id="sk-c-text">Graduate studies focus in OS topics, implementing unikernels and bootloaders</p>
             </div>
           </div>
         </div>
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Cloud Technology</h4>
-              <p>Have worked to support and implement Docker, Kubernetes, and Helm support for applications following a microservice architecture</p>
+              <h4 class="skill-name">Python</h4>
+              <a id="sk-py" class="skill-show-more" onclick="toggleSkillSection('sk-py')">Show More</a>
+              <p class="skill-text" id="sk-py-text">Building a Process Mining platform at Appian using Python, also machine learning applications, coding competitions, many college courses</p>
             </div>
           </div>
           <div class="column-5 collapse-col">
             <div class="block">
-              <h4>Technical Presentation</h4>
-              <p>Winner of the 2020 speaking contest for engineers at Penn State, mentor for technical presentation and the assertion evidence method</p>
+              <h4 class="skill-name">Agile</h4>
+              <a id="sk-agile" class="skill-show-more" onclick="toggleSkillSection('sk-agile')">Show More</a>
+              <p class="skill-text" id="sk-agile-text">Extensive experience working on & leading Agile teams, Scrum & Kanban methods</p>
+            </div>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <h4 class="skill-name">Machine Learning</h4>
+              <a id="sk-ml" class="skill-show-more" onclick="toggleSkillSection('sk-ml')">Show More</a>
+              <p class="skill-text" id="sk-ml-text">Project lead in NLP & OCR project, courses in general AI, term project work with Transformers, RNNs, CNNs, capstone use of YOLO, ResNet models, personal work with generic algorithms</p>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <h4 class="skill-name">C#, C++</h4>
+              <a id="sk-cs" class="skill-show-more" onclick="toggleSkillSection('sk-cs')">Show More</a>
+              <p class="skill-text" id="sk-cs-text">Use of C# in Unity development, working with Xamarin, use of C++ for course projects in queueing theory</p>
+            </div>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <h4 class="skill-name">Cloud Technology</h4>
+              <a id="sk-cloud" class="skill-show-more" onclick="toggleSkillSection('sk-cloud')">Show More</a>
+              <p class="skill-text" id="sk-cloud-text">Have worked to support and implement Docker, Kubernetes, and Helm support for applications following a microservice architecture</p>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <h4 class="skill-name">Technical Presentation</h4>
+              <a id="sk-pres" class="skill-show-more" onclick="toggleSkillSection('sk-pres')">Show More</a>
+              <p class="skill-text" id="sk-pres-text">Winner of the 2020 speaking contest for engineers at Penn State, mentor for technical presentation and the <a href="https://www.assertion-evidence.com/" target="_blank">assertion evidence</a> method</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id = "work" class="content">
+    <section id = "projects" class="content">
 
-      <h2><img src="img/icon-computer.png" class="icon"> My Work</h2>
+      <h2><img src="img/icon-computer.png" class="icon"> My Projects</h2>
 
       <div class="body">
-        <div class="row collapse">
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <img class="icon" src="img/logo-appian.png" />
-              <h4>Appian</h4>
-              <p>2022-<br>Software engineering intern at Appian during the summer of 2022. Campus ambassador at Penn State during Spring 2023. Incoming SWE.</p>
-            </div>
-          </div>
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <img class="icon" src="img/logo-psu.png" />
-              <h4>Nittany AI Alliance</h4>
-              <p>2021-2023<br>Worked as project lead and NLP engineer implementing a system from scratch to process more than 100,000 annual admissions to Penn State. Managed communication with stakeholders and organized the student team's work.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <img class="icon" src="img/logo-lockheed.jpg" />
-              <h4>Lockheed Martin</h4>
-              <p>2020-2022<br>Two years of internship experience at Lockheed Martin in a full-stack software development role. This included work with a MEAN stack, Java, and cloud technologies in an Agile work environment.</p>
-            </div>
-          </div>
-          <div class="column-5 collapse-col">
-            <div class="block">
-              <img class="icon" src="img/logo-maverick.jpg" />
-              <h4>Maverick Software Systems</h4>
-              <p>2018-2020<br>Over the course of two years I worked as a software developer with Maverick Software Systems LLC, a startup company based out of Penn State which produces logistic software improving communication in the medical industry.</p>
-              <a href="https://www.linkedin.com/company/maverick-software-systems/about/" target="_blank">LinkedIn</a> &emsp; <a href="https://news.psu.edu/story/581914/2019/07/29/academics/student-startup-aims-improve-health-care-through-technology" target="_blank">Read More</a>
-            </div>
-          </div>
-        </div>
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
@@ -373,6 +401,20 @@
       <h2>Games</h2>
 
       <div class="body">
+        <div class="row collapse">
+          <div class="column-5 collapse-col">
+            <div class="block">
+              <h4>Sorcerer Divorce Lawyer (2024)</h4>
+              <p>Help a wannabe Bard turned Divorce Lawyer use Sorcery and rhythm to equally divide assets between clients. Made in 96 hours as an entry to GMTK Game Jam 2024.</p>
+              <a href="https://presidentwhitewall.itch.io/sorcerer-divorce-lawyer" target="_blank">Play</a>
+            </div>
+          </div>
+          <div class="column-5 collapse-col">
+            <div class="imgblock">
+              <img src="img/sdl-1.png">
+            </div>
+          </div>
+        </div>
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
@@ -478,6 +520,7 @@
             </div>
           </div>
         </div>
+        <!--
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">
@@ -493,6 +536,7 @@
             </div>
           </div>
         </div>
+        --> 
         <div class="row collapse">
           <div class="column-5 collapse-col">
             <div class="block">

@@ -113,6 +113,13 @@ a:hover{
   padding-bottom:5%;
 }
 
+#projects{
+  border-top:2px solid #0f6fc6;
+  background-color:#FFF;
+  padding-top:5%;
+  padding-bottom:5%;
+}
+
 .navbar {
   list-style-type: none;
   margin: 0;
@@ -213,6 +220,23 @@ a:hover{
 .subtext-award{
   font-size: 0.5rem;
   margin-left: 0.5rem;
+}
+
+.skill-text{
+  transition: 1s all;
+  font-size: 0;
+}
+
+.skill-show-more{
+  font-size: 0.5rem;
+}
+
+.skill-show-more:hover{
+  cursor: pointer;
+}
+
+.skill-name{
+  display: inline;
 }
 
 .column-25{ flex:25%; }
